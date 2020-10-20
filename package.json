@@ -1,0 +1,42 @@
+{
+  "name": "mikro-orm-bug",
+  "version": "1.0.0",
+  "description": "Mikro-ORM bug reproduction",
+  "main": "dist/api",
+  "scripts": {
+    "build": "tsc",
+    "check": "npm run lint && npm run format && npm run build",
+    "dev": "ts-node --files src/main.ts",
+    "format": "prettier --write \"{src,{tests,mocks}}/**/*.{js,ts}\"",
+    "lint": "eslint --fix \"{src,{tests,mocks}}/**/*.{js,ts}\"",
+    "start": "node dist/main.js"
+  },
+  "keywords": [
+    "mikro-orm"
+  ],
+  "author": "Ujwal Setlur",
+  "devDependencies": {
+    "@types/node": "14.14.0",
+    "@types/uuid": "8.3.0",
+    "@typescript-eslint/eslint-plugin": "4.5.0",
+    "@typescript-eslint/parser": "4.5.0",
+    "eslint": "7.11.0",
+    "eslint-config-airbnb-base": "14.2.0",
+    "eslint-config-prettier": "6.13.0",
+    "eslint-plugin-import": "2.22.1",
+    "eslint-plugin-prettier": "3.1.4",
+    "prettier": "2.1.2",
+    "ts-jest": "26.4.1",
+    "ts-node": "9.0.0",
+    "typescript": "4.0.3"
+  },
+  "dependencies": {
+    "@mikro-orm/core": "4.2.1",
+    "@mikro-orm/sqlite": "4.2.1",
+    "reflect-metadata": "0.1.13",
+    "uuid": "8.3.1"
+  },
+  "engines": {
+    "node": ">= 12.x.x"
+  }
+}
