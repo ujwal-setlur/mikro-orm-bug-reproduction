@@ -1,20 +1,11 @@
 import 'reflect-metadata';
-import { MikroORM } from '@mikro-orm/core';
 
-import { Discount, entities } from './entities';
+import { getDbMiddleware } from './db.middleware';
+import { Discount } from './entities/discount';
 
 async function main() {
-  // init ORM
-  const orm = await MikroORM.init({
-    type: 'sqlite',
-    dbName: 'test.db',
-    debug: true,
-    entities,
-    cache: {
-      enabled: false
-    }
-  });
-  await orm.getSchemaGenerator().updateSchema();
+  // get db middleware
+  const orm = await getDbMiddleware();
 
   // create discount
   const discount = new Discount({ name: 'a discount', clientId: 'a client' });
